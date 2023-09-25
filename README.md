@@ -11,7 +11,7 @@ Instalação
 4. Execute bin/cake server
 
 Uso
-Para criar um novo artigo, visite /articles/add. Para editar um artigo, visite /articles/edit/{id}. Para excluir um artigo, visite /articles/delete/{id}.
+Para criar um novo artigo, visite '/articles/add'. Para editar um artigo, visite '/articles/edit/{id}'. Para excluir um artigo, visite '/articles/delete/{id}'.
 
 Contribuições
 Contribuições são bem-vindas! Por favor, envie pull requests para o branch develop.
