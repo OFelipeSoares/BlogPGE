@@ -60,7 +60,7 @@ class ArticlesController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
 
-        $article = $this->Article->get($id);
+        $article = $this->Articles->get($id);
         if ($this->Articles->delete($article))
             {
                 $this->Flash->success(__('O artigo com id: {0} foi deletado.', h($id)));

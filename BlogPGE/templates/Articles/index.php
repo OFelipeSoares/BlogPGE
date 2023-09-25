@@ -10,7 +10,7 @@
         <th>Ações</th>
     </tr>
 
-    <?php foreach ($articles as $article) : ?>
+    <?php foreach ($articles as $article): ?>
         <tr>
             <td> <?= $article->id ?></td>
             <td>
@@ -23,8 +23,7 @@
                 <?= $this->Form->postLink(
                     'Deletar',
                     ['action' => 'delete', $article->id],
-                    ['confirm' => 'Tem certeza?']
-                )
+                    ['confirm' => 'Tem certeza?'])
 
                 ?>
                 <?= $this->Html->link('Editar', ['action' => 'edit', $article->id] )?>
