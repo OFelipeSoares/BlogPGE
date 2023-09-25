@@ -2,13 +2,22 @@
 
 Projeto de site Blog desenvolvido usando PHP 8.2, no Framework CakePHP 3.2 e o WampServer 3.3. 
 
-Em 'config/app.php' a base de dados está configurada para usar o MySQL 8.0:
+Instalação
 
-'host' => 'localhost',
-'username' => 'root',
-'password' => '',
-'encoding' => 'utf8mb4'
+Clone o repositório
+Execute composer install
+Crie um arquivo .env e adicione suas credenciais de banco de dados
+Execute bin/cake migrations migrate
+Execute bin/cake server
 
-Essas informações devem ser alteradas de acordo com a base dados criada. 
+Uso
+Para criar um novo artigo, visite /articles/add. Para editar um artigo, visite /articles/edit/{id}. Para excluir um artigo, visite /articles/delete/{id}.
 
-O acesso ao 'site' é simples, basta acessar a pasta em que ele está hospedado no localhost. 
+Contribuições
+Contribuições são bem-vindas! Por favor, envie pull requests para o branch develop.
+
+Licença
+Este projeto está licenciado sob a licença MIT.
+
+
+
