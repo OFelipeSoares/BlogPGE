@@ -11,6 +11,10 @@ class ArticlesTable extends Table
     public function initialize(array $config):void
     {
         $this->addBehavior('Timestamp');
+        // As linhas abaixão farão o relacionamento dos articos com suas respectivas categorias
+        $this->belongsTo('Categories', [
+            'foreignKey' => 'category_id'
+        ]);
     }
 
     public function validationDefault(Validator $validator): Validator //Na documentação esse método ": Validator" não existe
