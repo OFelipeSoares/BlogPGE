@@ -299,12 +299,10 @@ return [
             'timezone' => 'UTC',
             'host' => 'localhost',
             'username' => 'root',
-            'password' => '',
+            'password' => '12345',
             'database' => 'blogpge',
             'encoding' => 'utf8mb4',
             'timezone' => 'UTC',
-
-
 
 
             /*
