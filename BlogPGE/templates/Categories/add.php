@@ -18,7 +18,9 @@
             <fieldset>
                 <legend><?= __('Add Category') ?></legend>
                 <?php
-                    echo $this->Form->control('parent_id', ['options' => $parentCategories]);
+                    // --  Documentação manda alterar de Control para input. Mas funcionou com control.
+                    //echo $this->Form->input('parent_id', ['options' => $parentCategories, 'empty' => 'No parent category']);
+                    echo $this->Form->control('parent_id', ['options' => $parentCategories, 'empty' => 'No parent category']);
                     echo $this->Form->control('name');
                     echo $this->Form->control('description');
                 ?>
