@@ -39,6 +39,10 @@ class ArticlesController extends AppController
             $this->Flash->error(__('Não foi possivel adicionar seu artigo'));
         }
         $this->set('article', $article);
+
+        // Criando a opção de Escolher uma categoria ao criar um artigo
+        $categories = $this->Articles->Categories->find('treeList');
+        $this->set(compact('categories'));
     }
 
     public function edit($id = null)
