@@ -11,7 +11,7 @@ class ArticlesTable extends Table
     public function initialize(array $config):void
     {
         $this->addBehavior('Timestamp');
-        // As linhas abaixão farão o relacionamento dos articos com suas respectivas categorias
+        // As linhas abaixão farão o relacionamento dos artigos com suas respectivas categorias
         $this->belongsTo('Categories', [
             'foreignKey' => 'category_id'
         ]);
@@ -22,6 +22,7 @@ class ArticlesTable extends Table
         $validator
             ->notEmpty('Title')
             ->notEmpty('body');
+
 
         return $validator;
     }

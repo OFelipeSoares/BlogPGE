@@ -6,15 +6,27 @@
     <tr>
         <th>Id</th>
         <th>Titulo</th>
+        <th>description</th>
+        <th>Categoria</th>
         <th>Criado</th>
         <th>Ações</th>
     </tr>
 
-    <?php foreach ($articles as $article): ?>
+    <?php
+
+    use PhpParser\Node\Name;
+
+ foreach ($articles as $article): ?>
         <tr>
             <td> <?= $article->id ?></td>
             <td>
                 <?= $this->Html->link($article->title, ['action' => 'view', $article->id]) ?>
+            </td>
+            <td>
+                <?= $this->Html->link($article->body, ['action' => 'view', $article->id]) ?>
+            </td>
+            <td>
+                <?= $this->Html->link($article->$category->name, ['action' => 'view', $article->id]) ?>
             </td>
             <td>
                 <?= $article->created->format(DATE_RFC850)?>

@@ -4,6 +4,9 @@
  * @var \App\Model\Entity\Category $category
  * @var \Cake\Collection\CollectionInterface|string[] $parentCategories
  */
+
+use App\Model\Entity\Category;
+
 ?>
 <div class="row">
     <aside class="column">
