@@ -1,8 +1,10 @@
 <?php
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace App\Controller;
-
+use Cake\Event\EventInterface; //Sugerido pela IDE
+use App\Controller\AppController;
+use Cake\Event\Event;
 /**
  * Users Controller
  *
@@ -11,6 +13,14 @@ namespace App\Controller;
  */
 class UsersController extends AppController
 {
+    //Função adicionada segundo documentação do cake
+
+    public function beforeFilter(Event $event)
+    {
+        parent :: beforeFilter($event);
+        $this->Auth->allow('add');
+    }
+
     /**
      * Index method
      *
