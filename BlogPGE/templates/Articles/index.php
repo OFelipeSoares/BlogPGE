@@ -26,7 +26,7 @@
                 <?= $this->Html->link($article->body, ['action' => 'view', $article->id]) ?>
             </td>
             <td>
-                <?= $this->Html->link($article->$category->name, ['action' => 'view', $article->id]) ?>
+                <?= $this->Html->link($article->category_id, ['action' => 'view', $article->id]) ?>
             </td>
             <td>
                 <?= $article->created->format(DATE_RFC850)?>
