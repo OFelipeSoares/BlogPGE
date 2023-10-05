@@ -16,6 +16,8 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\Event\EventInterface;
+use Cake\Http\Response;
 
 /**
  * Application Controller
@@ -42,6 +44,19 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        //Adicionado posteriormente para implementar a autorização de usuários
+
+        $this->loadComponent('Auth',[
+            'loginRedirect' => [
+                'controller' => 'Articles',
+                'action' => 'index'
+            ],
+            'loginRedirect' => [
+                'controller' => 'Pages',
+                'action' => 'display',
+                'home'
+            ]
+            ]);
 
         /*
          * Enable the following component for recommended CakePHP form protection settings.
@@ -49,4 +64,10 @@ class AppController extends Controller
          */
         //$this->loadComponent('FormProtection');
     }
+    public function beforeFilter(EventInterface $event)
+    {
+        $this->Auth->allow(['index', 'view', 'display']);
+    }
+
+
 }
