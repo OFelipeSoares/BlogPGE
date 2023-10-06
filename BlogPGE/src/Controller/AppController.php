@@ -64,7 +64,7 @@ class AppController extends Controller
          */
         //$this->loadComponent('FormProtection');
     }
-    public function beforeFilter(EventInterface $event)
+    public function beforeFilter(EventInterface $event) //Essa função é responsável por dizer ao AuthComponent que não é necessário longin para visualizar o index e as views
     {
         $this->Auth->allow(['index', 'view', 'display']);
     }
