@@ -15,6 +15,7 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 
+use App\Model\Entity\User;
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 use Cake\Event\EventInterface;
@@ -68,6 +69,17 @@ class AppController extends Controller
     public function beforeFilter(EventInterface $event) //Essa função é responsável por dizer ao AuthComponent que não é necessário longin para visualizar o index e as views
     {
         $this->Auth->allow(['index', 'view', 'display']);
+    }
+
+    public function isAuthorizer($user)
+    {
+        //Adimin pode acessar todas as ações
+        if (isset($user['role']) && $user['role'] === 'admin')
+        {
+            return true;
+        }
+        //Bloqueia acesso por padrão
+        return false;
     }
 
 
