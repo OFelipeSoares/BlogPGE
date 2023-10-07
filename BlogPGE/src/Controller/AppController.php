@@ -71,7 +71,7 @@ class AppController extends Controller
         $this->Auth->allow(['index', 'view', 'display']);
     }
 
-    public function isAuthorizer($user)
+    public function isAuthorized($user)
     {
         //Adimin pode acessar todas as ações
         if (isset($user['role']) && $user['role'] === 'admin')

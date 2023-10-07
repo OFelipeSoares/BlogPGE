@@ -2,6 +2,7 @@
 
 namespace App\Model\Table;
 
+use Cake\Core\Retry\RetryStrategyInterface;
 use Cake\ORM\Table;
 use Cake\TestSuite\Constraint\Response\BodyNotEmpty;
 use Cake\Validation\Validator;
@@ -25,6 +26,11 @@ class ArticlesTable extends Table
 
 
         return $validator;
+    }
+
+    public function isOwnedBy($articleId, $userId)
+    {
+        return $this->exists(['id' => $articleId, 'user_id' => $userId]);
     }
 
 }

@@ -76,5 +76,25 @@ class ArticlesController extends AppController
             }
     }
 
+    public function isAuthorized($user)
+    {
+        // Todos os Usuários podem adicionar atigos
+        if($this->request->getParam('action') === 'add')
+        {
+            return true;
+        }
+
+        //Apenas o proprietário do artigo pode editar ou excluir
+        if (in_array($this->request->getParam('action'), ['edit', 'delete']))
+        {
+            $articleId = (int)$this->request->getParam('pass.0');
+            if($this->Articles->isOwnedBy($articleId, $user['id']))
+            {
+                return true;
+            }
+        }
+        return parent::isAuthorized($user);
+    }
+
 }
 ?>
