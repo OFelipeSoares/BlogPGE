@@ -31,6 +31,10 @@ class ArticlesController extends AppController
         if ($this->request->is('post'))
         {
             $article = $this->Articles->patchEntity($article, $this->request->getData());
+            $article->user_id = $this->Auth->user('id');
+            //Opção alternativa
+            //$newData = ['user_id' => $this->Auth->user('id')];
+            //$article = $this->Articles->patchEntity($article, $newData);
             if ($this->Articles->save($article))
                 {
                     $this->Flash->success(__('Seu artigo foi salvo.'));
